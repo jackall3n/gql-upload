@@ -1,4 +1,4 @@
-![gql-upload logo](https://cdn.jsdelivr.net/gh/jackall3n/gql-upload@8.0.0/gql-upload-logo.svg)
+![gql-upload logo](graphql-upload-logo.svg)
 
 # gql-upload
 
