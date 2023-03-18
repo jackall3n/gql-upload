@@ -1,7 +1,7 @@
 // @ts-check
 
 /** @typedef {import("./GraphQLUpload.mjs").default} GraphQLUpload */
-/** @typedef {import("./processRequest.mjs").default} processRequest */
+/** @typedef {import("./utils/processRequest.js").default} processRequest */
 
 /**
  * A file expected to be uploaded as it was declared in the `map` field of a
@@ -10,18 +10,23 @@
  * this class wherever the file is expected in the GraphQL operation. The scalar
  * {@linkcode GraphQLUpload} derives it’s value from {@linkcode Upload.promise}.
  */
-export default class Upload {
+export  class Upload {
+  promise: Promise<any>
+  file: File;
+  resolve: (file: File) => void;
+  reject: (error: Error) => void;
+
   constructor() {
     /**
      * Promise that resolves file upload details. This should only be utilized
      * by {@linkcode GraphQLUpload}.
-     * @type {Promise<import("./processRequest.mjs").FileUpload>}
+     * @type {Promise<import("./utils/processRequest.js").FileUpload>}
      */
     this.promise = new Promise((resolve, reject) => {
       /**
        * Resolves the upload promise with the file upload details. This should
        * only be utilized by {@linkcode processRequest}.
-       * @param {import("./processRequest.mjs").FileUpload} file File upload
+       * @param {import("./utils/processRequest.js").FileUpload} file File upload
        *   details.
        */
       this.resolve = (file) => {
@@ -29,7 +34,7 @@ export default class Upload {
          * The file upload details, available when the
          * {@linkcode Upload.promise} resolves. This should only be utilized by
          * {@linkcode processRequest}.
-         * @type {import("./processRequest.mjs").FileUpload | undefined}
+         * @type {import("./utils/processRequest.js").FileUpload | undefined}
          */
         this.file = file;
 

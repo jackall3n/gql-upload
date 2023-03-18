@@ -2,7 +2,7 @@
 
 import { doesNotThrow, strictEqual } from "node:assert";
 
-import ignoreStream from "./ignoreStream.mjs";
+import ignoreStream from "./ignoreStream.js";
 import CountReadableStream from "./test/CountReadableStream.mjs";
 
 /**

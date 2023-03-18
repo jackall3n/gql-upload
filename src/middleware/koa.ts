@@ -1,6 +1,6 @@
 // @ts-check
 
-import defaultProcessRequest from "./processRequest.mjs";
+import defaultProcessRequest from "../utils/processRequest.js";
 
 /**
  * Creates [Koa](https://koajs.com) middleware that processes incoming
@@ -8,7 +8,7 @@ import defaultProcessRequest from "./processRequest.mjs";
  * using {@linkcode processRequest}, ignoring non multipart requests. It sets
  * the request `body` to be similar to a conventional GraphQL POST request for
  * following GraphQL middleware to consume.
- * @param {import("./processRequest.mjs").ProcessRequestOptions & {
+ * @param {import("./utils/processRequest.js").ProcessRequestOptions & {
  *   processRequest?: import("./processRequest.mjs").ProcessRequestFunction
  * }} options Options.
  * @returns Koa middleware.
@@ -18,7 +18,7 @@ import defaultProcessRequest from "./processRequest.mjs";
  * ```js
  * import errorHandler from "graphql-api-koa/errorHandler.mjs";
  * import execute from "graphql-api-koa/execute.mjs";
- * import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.mjs";
+ * import graphqlUploadKoa from "gql-upload/graphqlUploadKoa.mjs";
  * import Koa from "koa";
  * import bodyParser from "koa-bodyparser";
  *
@@ -33,9 +33,9 @@ import defaultProcessRequest from "./processRequest.mjs";
  * ```
  */
 export default function graphqlUploadKoa({
-  processRequest = defaultProcessRequest,
-  ...processRequestOptions
-} = {}) {
+                                           processRequest = defaultProcessRequest,
+                                           ...processRequestOptions
+                                         } = {}) {
   /**
    * [Koa](https://koajs.com) middleware that processes incoming
    * [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec)

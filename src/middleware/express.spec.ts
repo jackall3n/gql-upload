@@ -6,9 +6,9 @@ import { deepStrictEqual, ok, strictEqual } from "node:assert";
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import graphqlUploadExpress from "./graphqlUploadExpress.mjs";
-import processRequest from "./processRequest.mjs";
-import listen from "./test/listen.mjs";
+import graphqlUploadExpress from "./express";
+import processRequest from "../utils/processRequest";
+import listen from "../../test/listen";
 
 /**
  * Adds `graphqlUploadExpress` tests.

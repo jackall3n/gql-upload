@@ -1,6 +1,6 @@
 // @ts-check
 
-import defaultProcessRequest from "./processRequest.mjs";
+import defaultProcessRequest from "../utils/processRequest";
 
 /**
  * Creates [Express](https://expressjs.com) middleware that processes incoming
@@ -18,7 +18,7 @@ import defaultProcessRequest from "./processRequest.mjs";
  * ```js
  * import express from "express";
  * import expressGraphQL from "express-graphql";
- * import graphqlUploadExpress from "graphql-upload/graphqlUploadExpress.mjs";
+ * import graphqlUploadExpress from "gql-upload/graphqlUploadExpress.mjs";
  *
  * import schema from "./schema.mjs";
  *
@@ -32,9 +32,9 @@ import defaultProcessRequest from "./processRequest.mjs";
  * ```
  */
 export default function graphqlUploadExpress({
-  processRequest = defaultProcessRequest,
-  ...processRequestOptions
-} = {}) {
+                                               processRequest = defaultProcessRequest,
+                                               ...processRequestOptions
+                                             } = {}) {
   /**
    * [Express](https://expressjs.com) middleware that processes incoming
    * [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec)

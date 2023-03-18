@@ -5,11 +5,12 @@ import { WriteStream } from "fs-capacitor";
 import createError from "http-errors";
 import objectPath from "object-path";
 
-import GRAPHQL_MULTIPART_REQUEST_SPEC_URL from "./GRAPHQL_MULTIPART_REQUEST_SPEC_URL.mjs";
-import ignoreStream from "./ignoreStream.mjs";
-import Upload from "./Upload.mjs";
+import GRAPHQL_MULTIPART_REQUEST_SPEC_URL from "../constants";
+import ignoreStream from "./ignoreStream.js";
 
-/** @typedef {import("./GraphQLUpload.mjs").default} GraphQLUpload */
+import { Upload } from "../";
+
+/** @typedef {import("../GraphQLUpload.js").default} GraphQLUpload */
 
 /**
  * Processes an incoming
@@ -186,7 +187,9 @@ export default function processRequest(
 
             map.set(fieldName, new Upload());
 
-            for (const [index, path] of paths.entries()) {
+            const entries = Array.from(paths.entries())
+
+            for (const [index, path] of entries) {
               if (typeof path !== "string")
                 return exit(
                   createError(
@@ -356,7 +359,7 @@ export default function processRequest(
  * @prop {string} encoding File stream transfer encoding.
  * @prop {import("fs-capacitor").WriteStream} capacitor A private implementation
  *   detail that shouldn’t be used outside
- *   [`graphql-upload`](https://npm.im/graphql-upload).
+ *   [`gql-upload`](https://npm.im/gql-upload).
  * @prop {FileUploadCreateReadStream} createReadStream Creates a
  *   [Node.js readable stream](https://nodejs.org/api/stream.html#readable-streams)
  *   of the file’s contents, for processing and storage.

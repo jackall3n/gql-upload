@@ -1,6 +1,6 @@
-![graphql-upload logo](https://cdn.jsdelivr.net/gh/jaydenseric/graphql-upload@8.0.0/graphql-upload-logo.svg)
+![gql-upload logo](https://cdn.jsdelivr.net/gh/jaydenseric/gql-upload@8.0.0/gql-upload-logo.svg)
 
-# graphql-upload
+# gql-upload
 
 Middleware and an [`Upload`](./GraphQLUpload.mjs) scalar to add support for [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec) (file uploads via queries and mutations) to various Node.js GraphQL servers.
 
@@ -10,12 +10,12 @@ Middleware and an [`Upload`](./GraphQLUpload.mjs) scalar to add support for [Gra
 
 > **Note**
 >
-> First, check if there are [GraphQL multipart request spec server implementations](https://github.com/jaydenseric/graphql-multipart-request-spec#server) (most for Node.js integrate [`graphql-upload`](https://npm.im/graphql-upload)) that are more suitable for your environment than a manual setup.
+> First, check if there are [GraphQL multipart request spec server implementations](https://github.com/jaydenseric/graphql-multipart-request-spec#server) (most for Node.js integrate [`gql-upload`](https://npm.im/gql-upload)) that are more suitable for your environment than a manual setup.
 
-To install [`graphql-upload`](https://npm.im/graphql-upload) and its [`graphql`](https://npm.im/graphql) peer dependency with [npm](https://npmjs.com/get-npm), run:
+To install [`gql-upload`](https://npm.im/gql-upload) and its [`graphql`](https://npm.im/graphql) peer dependency with [npm](https://npmjs.com/get-npm), run:
 
 ```sh
-npm install graphql-upload graphql
+npm install gql-upload graphql
 ```
 
 Use the middleware [`graphqlUploadKoa`](./graphqlUploadKoa.mjs) or [`graphqlUploadExpress`](./graphqlUploadExpress.mjs) just before GraphQL middleware. Alternatively, use the function [`processRequest`](./processRequest.mjs) to create custom middleware.
@@ -60,7 +60,7 @@ Projects must configure [TypeScript](https://typescriptlang.org) to use types fr
 
 ## Exports
 
-The [npm](https://npmjs.com) package [`graphql-upload`](https://npm.im/graphql-upload) features [optimal JavaScript module design](https://jaydenseric.com/blog/optimal-javascript-module-design). It doesn’t have a main index module, so use deep imports from the ECMAScript modules that are exported via the [`package.json`](./package.json) field [`exports`](https://nodejs.org/api/packages.html#exports):
+The [npm](https://npmjs.com) package [`gql-upload`](https://npm.im/gql-upload) features [optimal JavaScript module design](https://jaydenseric.com/blog/optimal-javascript-module-design). It doesn’t have a main index module, so use deep imports from the ECMAScript modules that are exported via the [`package.json`](./package.json) field [`exports`](https://nodejs.org/api/packages.html#exports):
 
 - [`GraphQLUpload.mjs`](./GraphQLUpload.mjs)
 - [`graphqlUploadExpress.mjs`](./graphqlUploadExpress.mjs)

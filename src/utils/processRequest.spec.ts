@@ -12,12 +12,12 @@ import {
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import processRequest from "./processRequest.mjs";
+import processRequest from "./processRequest.js";
 import abortingMultipartRequest from "./test/abortingMultipartRequest.mjs";
 import Deferred from "./test/Deferred.mjs";
 import listen from "./test/listen.mjs";
 import streamToString from "./test/streamToString.mjs";
-import Upload from "./Upload.mjs";
+import Upload from "../Upload.js";
 
 /**
  * Adds `processRequest` tests.
@@ -1651,7 +1651,7 @@ export default (tests) => {
           body: `--${boundary}\r\n Content-Disposition: form-data;`,
           //                      ^
           // Invalid space char at the header name start. See:
-          // https://github.com/jaydenseric/graphql-upload/issues/311#issuecomment-1139513829
+          // https://github.com/jaydenseric/gql-upload/issues/311#issuecomment-1139513829
         });
 
         if (serverError) throw serverError;

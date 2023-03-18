@@ -1,4 +1,4 @@
-# graphql-upload changelog
+# gql-upload changelog
 
 ## 16.0.2
 
@@ -16,40 +16,40 @@
 
 ### Patch
 
-- Support non `latin1` characters in file names by setting the [`busboy`](https://npm.im/busboy) option `defParamCharset` to `utf8`, fixing [#328](https://github.com/jaydenseric/graphql-upload/issues/328).
+- Support non `latin1` characters in file names by setting the [`busboy`](https://npm.im/busboy) option `defParamCharset` to `utf8`, fixing [#328](https://github.com/jaydenseric/gql-upload/issues/328).
 - Removed a redundant `@ts-ignore` comment.
 
 ## 16.0.0
 
 ### Major
 
-- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v8, fixing [#318](https://github.com/jaydenseric/graphql-upload/issues/318).
+- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v8, fixing [#318](https://github.com/jaydenseric/gql-upload/issues/318).
 - The type `FileUploadCreateReadStreamOptions` from the `processRequest.mjs` module now uses types from [`fs-capacitor`](https://npm.im/fs-capacitor) that are slightly more specific.
 - The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#require). To migrate imports:
 
   ```diff
-  - import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
-  + import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
+  - import GraphQLUpload from "gql-upload/GraphQLUpload.js";
+  + import GraphQLUpload from "gql-upload/GraphQLUpload.mjs";
   ```
 
   ```diff
-  - import graphqlUploadExpress from "graphql-upload/graphqlUploadExpress.js";
-  + import graphqlUploadExpress from "graphql-upload/graphqlUploadExpress.mjs";
+  - import graphqlUploadExpress from "gql-upload/graphqlUploadExpress.js";
+  + import graphqlUploadExpress from "gql-upload/graphqlUploadExpress.mjs";
   ```
 
   ```diff
-  - import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.js";
-  + import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.mjs";
+  - import graphqlUploadKoa from "gql-upload/graphqlUploadKoa.js";
+  + import graphqlUploadKoa from "gql-upload/graphqlUploadKoa.mjs";
   ```
 
   ```diff
-  - import processRequest from "graphql-upload/processRequest.js";
-  + import processRequest from "graphql-upload/processRequest.mjs";
+  - import processRequest from "gql-upload/processRequest.js";
+  + import processRequest from "gql-upload/processRequest.mjs";
   ```
 
   ```diff
-  - import Upload from "graphql-upload/Upload.js";
-  + import Upload from "graphql-upload/Upload.mjs";
+  - import Upload from "gql-upload/Upload.js";
+  + import Upload from "gql-upload/Upload.mjs";
   ```
 
 ### Patch
@@ -69,13 +69,13 @@
 
 ### Patch
 
-- Don’t import and link types from the middlware modules `graphqlUploadExpress.js` and `graphqlUploadKoa.js` within the module `processRequest.js`, fixing [#314](https://github.com/jaydenseric/graphql-upload/issues/314).
+- Don’t import and link types from the middlware modules `graphqlUploadExpress.js` and `graphqlUploadKoa.js` within the module `processRequest.js`, fixing [#314](https://github.com/jaydenseric/gql-upload/issues/314).
 
 ## 15.0.0
 
 ### Major
 
-- Updated the [`busboy`](https://npm.im/busboy) dependency to v1, fixing [#311](https://github.com/jaydenseric/graphql-upload/issues/311).
+- Updated the [`busboy`](https://npm.im/busboy) dependency to v1, fixing [#311](https://github.com/jaydenseric/gql-upload/issues/311).
   - This important update addresses the vulnerability [CVE-2022-24434](https://nvd.nist.gov/vuln/detail/CVE-2022-24434) ([GHSA-wm7h-9275-46v2](https://github.com/advisories/GHSA-wm7h-9275-46v2)).
   - Some error messages have changed.
   - Temporarily until [mscdex/busboy#297](https://github.com/mscdex/busboy/issues/297) is fixed upstream, for the function `processRequest` and the middleware `graphqlUploadExpress` and `graphqlUploadKoa` the option `maxFileSize` is actually 1 byte less than the amount specified.
@@ -98,58 +98,58 @@
 - Removed the package main index module; deep imports must be used. To migrate imports:
 
   ```diff
-  - import { GraphQLUpload } from "graphql-upload";
-  + import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+  - import { GraphQLUpload } from "gql-upload";
+  + import GraphQLUpload from "gql-upload/GraphQLUpload.js";
   ```
 
   ```diff
-  - import { graphqlUploadExpress } from "graphql-upload";
-  + import graphqlUploadExpress from "graphql-upload/graphqlUploadExpress.js";
+  - import { graphqlUploadExpress } from "gql-upload";
+  + import graphqlUploadExpress from "gql-upload/graphqlUploadExpress.js";
   ```
 
   ```diff
-  - import { graphqlUploadKoa } from "graphql-upload";
-  + import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.js";
+  - import { graphqlUploadKoa } from "gql-upload";
+  + import graphqlUploadKoa from "gql-upload/graphqlUploadKoa.js";
   ```
 
   ```diff
-  - import { processRequest } from "graphql-upload";
-  + import processRequest from "graphql-upload/processRequest.js";
+  - import { processRequest } from "gql-upload";
+  + import processRequest from "gql-upload/processRequest.js";
   ```
 
   ```diff
-  - import { Upload } from "graphql-upload";
-  + import Upload from "graphql-upload/Upload.js";
+  - import { Upload } from "gql-upload";
+  + import Upload from "gql-upload/Upload.js";
   ```
 
 - Shortened public module deep import paths, removing the `/public/`. To migrate imports:
 
   ```diff
-  - import GraphQLUpload from "graphql-upload/public/GraphQLUpload.js";
-  + import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+  - import GraphQLUpload from "gql-upload/public/GraphQLUpload.js";
+  + import GraphQLUpload from "gql-upload/GraphQLUpload.js";
   ```
 
   ```diff
-  - import graphqlUploadExpress from "graphql-upload/public/graphqlUploadExpress.js";
-  + import graphqlUploadExpress from "graphql-upload/graphqlUploadExpress.js";
+  - import graphqlUploadExpress from "gql-upload/public/graphqlUploadExpress.js";
+  + import graphqlUploadExpress from "gql-upload/graphqlUploadExpress.js";
   ```
 
   ```diff
-  - import graphqlUploadKoa from "graphql-upload/public/graphqlUploadKoa.js";
-  + import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.js";
+  - import graphqlUploadKoa from "gql-upload/public/graphqlUploadKoa.js";
+  + import graphqlUploadKoa from "gql-upload/graphqlUploadKoa.js";
   ```
 
   ```diff
-  - import processRequest from "graphql-upload/public/processRequest.js";
-  + import processRequest from "graphql-upload/processRequest.js";
+  - import processRequest from "gql-upload/public/processRequest.js";
+  + import processRequest from "gql-upload/processRequest.js";
   ```
 
   ```diff
-  - import Upload from "graphql-upload/public/Upload.js";
-  + import Upload from "graphql-upload/Upload.js";
+  - import Upload from "gql-upload/public/Upload.js";
+  + import Upload from "gql-upload/Upload.js";
   ```
 
-- Implemented TypeScript types via JSDoc comments, closing [#282](https://github.com/jaydenseric/graphql-upload/issues/282).
+- Implemented TypeScript types via JSDoc comments, closing [#282](https://github.com/jaydenseric/gql-upload/issues/282).
 - The `GraphQLUpload` scalar no longer uses deprecated `GraphQLError` constructor parameters.
 
 ### Patch
@@ -170,7 +170,7 @@
 - Use `substring` instead of the deprecated string method `substr` in tests.
 - Fixed a typo in a code comment.
 - Updated documentation.
-- Added a `license.md` MIT License file, closing [#86](https://github.com/jaydenseric/graphql-upload/issues/86).
+- Added a `license.md` MIT License file, closing [#86](https://github.com/jaydenseric/gql-upload/issues/86).
 
 ## 13.0.0
 
@@ -191,8 +191,8 @@
 - Test the `processRequest` function with an unparsable multipart request.
 - Replaced the [`form-data`](https://npm.im/form-data) dev dependency with [`formdata-node`](https://npm.im/formdata-node), [`formdata-node`](https://npm.im/form-data-encoder), and [`node-abort-controller`](https://npm.im/node-abort-controller) and refactored tests to align with web standards.
 - Refactored the `processRequest` function to remove the [`isobject`](https://npm.im/isobject) dependency.
-- Improved the `processRequest` function, via [#273](https://github.com/jaydenseric/graphql-upload/pull/273):
-  - Fixed ending requests from being handled incorrectly as aborting in edge cases, closing [#272](https://github.com/jaydenseric/graphql-upload/pull/272).
+- Improved the `processRequest` function, via [#273](https://github.com/jaydenseric/gql-upload/pull/273):
+  - Fixed ending requests from being handled incorrectly as aborting in edge cases, closing [#272](https://github.com/jaydenseric/gql-upload/pull/272).
   - Fixed read streams created via the resolved `Upload` scalar value `createReadStream` method:
     - Not emitting the `error` event when the multipart request is aborted certain ways while the file is uploading.
     - Emitting incorrect `error` event details for multipart request file field parse errors.
@@ -246,12 +246,12 @@
 
 ### Patch
 
-- Updated the [`graphql`](https://npm.im/graphql) peer dependency to `0.13.1 - 15`, fixing [#200](https://github.com/jaydenseric/graphql-upload/issues/200) via [#201](https://github.com/jaydenseric/graphql-upload/pull/201).
+- Updated the [`graphql`](https://npm.im/graphql) peer dependency to `0.13.1 - 15`, fixing [#200](https://github.com/jaydenseric/gql-upload/issues/200) via [#201](https://github.com/jaydenseric/gql-upload/pull/201).
 - Updated Prettier related package scripts.
 - Configured Prettier option `semi` to the default, `true`.
 - Ensure GitHub Actions run on pull request.
 - Also run GitHub Actions with Node.js v14.
-- Fixed the `ignoreStream` function tests for Node.js v14 with a new `CountReadableStream` test helper, fixing [#209](https://github.com/jaydenseric/graphql-upload/issues/209).
+- Fixed the `ignoreStream` function tests for Node.js v14 with a new `CountReadableStream` test helper, fixing [#209](https://github.com/jaydenseric/gql-upload/issues/209).
 - Minor JSDoc wording tweak for consistency.
 - Mention [`Promise.allSettled`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled) in the readme “Tips” section.
 - Updated MDN Web Docs links.
@@ -261,17 +261,17 @@
 ### Major
 
 - Updated Node.js support from v8.10+ to v10+, as earlier versions have reached end-of-life.
-- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v6, which now requires Node.js v10+, via [#179](https://github.com/jaydenseric/graphql-upload/pull/179).
+- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v6, which now requires Node.js v10+, via [#179](https://github.com/jaydenseric/gql-upload/pull/179).
 - Updated dev dependencies, some of which now require Node.js v10+.
 - Replaced the [`tap`](https://npm.im/tap) dev dependency with [`test-director`](https://npm.im/test-director), [`coverage-node`](https://npm.im/coverage-node), and [`hard-rejection`](https://npm.im/hard-rejection) to improve the dev experience and reduce the dev install size by ~75.7 MB. These new dev dependencies require Node.js v10+.
 - Reorganized files. This is only a breaking change for projects using undocumented deep imports.
 - Removed now redundant Node.js version compatibility logic in the `processRequest` function.
-- The `processRequest` function now places references to instances of the now exported and documented `Upload` class in the GraphQL operation for the `GraphQLUpload` scalar to derive its value, and the `GraphQLUpload` scalar now throws a `GraphQLError` when it parses an invalid value, fixing [#175](https://github.com/jaydenseric/graphql-upload/issues/175) via [#181](https://github.com/jaydenseric/graphql-upload/pull/181).
+- The `processRequest` function now places references to instances of the now exported and documented `Upload` class in the GraphQL operation for the `GraphQLUpload` scalar to derive its value, and the `GraphQLUpload` scalar now throws a `GraphQLError` when it parses an invalid value, fixing [#175](https://github.com/jaydenseric/gql-upload/issues/175) via [#181](https://github.com/jaydenseric/gql-upload/pull/181).
 - The `GraphQLUpload` scalar `parseLiteral` and `serialize` methods now throw `GraphQLError` (instead of `Error`) instances, with tweaked messages.
 
 ### Minor
 
-- The `createReadStream` function in resolved file uploads now accepts options to configure the encoding and high water mark, fixing [#177](https://github.com/jaydenseric/graphql-upload/issues/177) via [#179](https://github.com/jaydenseric/graphql-upload/pull/179).
+- The `createReadStream` function in resolved file uploads now accepts options to configure the encoding and high water mark, fixing [#177](https://github.com/jaydenseric/gql-upload/issues/177) via [#179](https://github.com/jaydenseric/gql-upload/pull/179).
 
 ### Patch
 
@@ -294,12 +294,12 @@
 
 - Updated Node.js support from v8.5+ to v8.10+, to match what the [`eslint`](https://npm.im/eslint) dev dependency now supports. This is unlikely to be a breaking change for the published package.
 - Removed the `Upload` scalar promise resolved `stream` property that has been deprecated since v7, along with associated tests.
-- ESM is no longer published, due to CJS/ESM compatibility issues across recent Node.js versions, via [#169](https://github.com/jaydenseric/graphql-upload/pull/169).
+- ESM is no longer published, due to CJS/ESM compatibility issues across recent Node.js versions, via [#169](https://github.com/jaydenseric/gql-upload/pull/169).
 - The file structure and non-index file exports have changed. This should only affect projects using undocumented deep imports.
 
 ### Minor
 
-- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v4 to support Node.js v13, making required changes to the source and tests, via [#166](https://github.com/jaydenseric/graphql-upload/pull/166).
+- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v4 to support Node.js v13, making required changes to the source and tests, via [#166](https://github.com/jaydenseric/gql-upload/pull/166).
 - JSDoc comments are now included in the published code.
 - Several anonymous functions have been named, for better error stack traces.
 - Setup [GitHub Sponsors funding](https://github.com/sponsors/jaydenseric):
@@ -321,7 +321,7 @@
 
 ### Minor
 
-- `processRequest` now throws an appropriate error when a multipart field value exceeds the configured size limit, fixing [#159](https://github.com/jaydenseric/graphql-upload/issues/159).
+- `processRequest` now throws an appropriate error when a multipart field value exceeds the configured size limit, fixing [#159](https://github.com/jaydenseric/gql-upload/issues/159).
 - When the file size limit is exceeded, mention how many bytes the limit is in the stream error message.
 - Added a new `processRequest` option to the `graphqlUploadExpress` and `graphqlUploadKoa` middleware, for improved testing without mocks or spies which are difficult to achieve with ESM.
 
@@ -329,8 +329,8 @@
 
 - Updated dependencies.
 - Due to updated dependencies: Lint fixes, removed redundant `eslint-disable-next-line` comments, and regenerated the readme.
-- Documented [`koa-graphql`](https://npm.im/koa-graphql) as known to be compatible, via [#156](https://github.com/jaydenseric/graphql-upload/pull/156).
-- Fixed a readme typo, via [#161](https://github.com/jaydenseric/graphql-upload/pull/161).
+- Documented [`koa-graphql`](https://npm.im/koa-graphql) as known to be compatible, via [#156](https://github.com/jaydenseric/gql-upload/pull/156).
+- Fixed a readme typo, via [#161](https://github.com/jaydenseric/gql-upload/pull/161).
 - Use GitHub Actions instead of Travis for CI.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore`, as it’s disabled in `.npmrc` anyway.
 - New file structure.
@@ -339,7 +339,7 @@
 - Nicer Browserslist query syntax.
 - Replaced the `isObject` helper with a smarter and tested `isEnumerableObject`.
 - Removed the `isString` helper.
-- Enforced 100% code coverage for tests, and improved `processRequest` internals and tests (including a new test using vanilla Node.js HTTP), fixing [#130](https://github.com/jaydenseric/graphql-upload/issues/130) via [#162](https://github.com/jaydenseric/graphql-upload/pull/162).
+- Enforced 100% code coverage for tests, and improved `processRequest` internals and tests (including a new test using vanilla Node.js HTTP), fixing [#130](https://github.com/jaydenseric/gql-upload/issues/130) via [#162](https://github.com/jaydenseric/gql-upload/pull/162).
 - Removed a workaround from the `startServer` test helper.
 - Added a new `ProcessRequestFunction` JSDoc type, and applied it to `processRequest`.
 - Renamed the `UploadOptions` JSDoc type to `ProcessRequestOptions`.
@@ -350,7 +350,7 @@
 ### Patch
 
 - Updated dependencies.
-- Handle invalid object paths in `map` multipart field entries, fixing [#154](https://github.com/jaydenseric/graphql-upload/issues/154).
+- Handle invalid object paths in `map` multipart field entries, fixing [#154](https://github.com/jaydenseric/gql-upload/issues/154).
 - Import `WriteStream` from [`fs-capacitor`](https://npm.im/fs-capacitor) as a named rather than default import.
 
 ## 8.0.6
@@ -358,7 +358,7 @@
 ### Patch
 
 - Updated dependencies.
-- Allow batched operations again, fixing [#142](https://github.com/jaydenseric/graphql-upload/issues/142).
+- Allow batched operations again, fixing [#142](https://github.com/jaydenseric/gql-upload/issues/142).
 - Simplify tests by writing JSON as strings instead of using `JSON.stringify`.
 - Use async middleware with [`express-async-handler`](https://npm.im/express-async-handler) for Express tests.
 - Removed unintended `maxFiles` config in certain tests.
@@ -369,7 +369,7 @@
 ### Patch
 
 - Updated dependencies.
-- Handle invalid types in multipart fields and respond with meaningful HTTP 400 errors, via [#139](https://github.com/jaydenseric/graphql-upload/pull/139):
+- Handle invalid types in multipart fields and respond with meaningful HTTP 400 errors, via [#139](https://github.com/jaydenseric/gql-upload/pull/139):
   - Invalid `operations` type.
   - Invalid `map` type.
   - Invalid `map` entry type.
@@ -385,7 +385,7 @@
 
 ### Patch
 
-- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v2, fixing [#131](https://github.com/jaydenseric/graphql-upload/issues/131) via [#132](https://github.com/jaydenseric/graphql-upload/pull/132).
+- Updated the [`fs-capacitor`](https://npm.im/fs-capacitor) dependency to v2, fixing [#131](https://github.com/jaydenseric/gql-upload/issues/131) via [#132](https://github.com/jaydenseric/gql-upload/pull/132).
 
 ## 8.0.3
 
@@ -399,7 +399,7 @@
 ### Patch
 
 - Updated dev dependencies.
-- Fixed hanging when a request with a large payload has an “immediate” error, such as a malformed request, fixing [#123](https://github.com/jaydenseric/graphql-upload/issues/123) via [#124](https://github.com/jaydenseric/graphql-upload/pull/124).
+- Fixed hanging when a request with a large payload has an “immediate” error, such as a malformed request, fixing [#123](https://github.com/jaydenseric/gql-upload/issues/123) via [#124](https://github.com/jaydenseric/gql-upload/pull/124).
 - Moved JSDoc type definitions to the end of files to make it easier to open to the code.
 
 ## 8.0.1
@@ -419,14 +419,14 @@
 
 - New naming that drops “apollo” to reflect the independent and universal nature of the project, fixing [#68](https://github.com/jaydenseric/apollo-upload-server/issues/68):
 
-  - Changed the package name from [`apollo-upload-server`](https://npm.im/apollo-upload-server) to [`graphql-upload`](https://npm.im/graphql-upload).
+  - Changed the package name from [`apollo-upload-server`](https://npm.im/apollo-upload-server) to [`gql-upload`](https://npm.im/gql-upload).
   - Renamed `apolloUploadKoa` to `graphqlUploadKoa`.
   - Renamed `apolloUploadExpress` to `graphqlUploadExpress`.
 
-  To migrate you project from `apollo-upload-server@7.1.0` to `graphql-upload@8.0.0`:
+  To migrate you project from `apollo-upload-server@7.1.0` to `gql-upload@8.0.0`:
 
   1. Run `npm uninstall apollo-upload-server`.
-  2. Run `npm install graphql-upload`.
+  2. Run `npm install gql-upload`.
   3. Find and replace:
      - `apolloUploadKoa` → `graphqlUploadKoa`.
      - `apolloUploadExpress` → `graphqlUploadExpress`.

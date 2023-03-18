@@ -1,13 +1,11 @@
-// @ts-check
-
 import Koa from "koa";
 import { deepStrictEqual, ok, strictEqual } from "node:assert";
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import graphqlUploadKoa from "./graphqlUploadKoa.mjs";
-import processRequest from "./processRequest.mjs";
-import listen from "./test/listen.mjs";
+import graphqlUploadKoa from "./koa";
+import processRequest from "../utils/processRequest";
+import listen from "../../test/listen";
 
 /**
  * Adds `graphqlUploadKoa` tests.

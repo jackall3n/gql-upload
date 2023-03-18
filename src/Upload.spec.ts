@@ -1,8 +1,6 @@
-// @ts-check
-
 import { ok, rejects, strictEqual } from "node:assert";
 
-import Upload from "./Upload.mjs";
+import { Upload } from "./";
 
 /**
  * Adds `Upload` tests.
@@ -15,8 +13,7 @@ export default (tests) => {
     ok(upload.promise instanceof Promise);
     strictEqual(typeof upload.resolve, "function");
 
-    /** @type {any} */
-    const file = {};
+    const file: any = {};
 
     upload.resolve(file);
 

@@ -2,9 +2,9 @@
 
 import { GraphQLError, GraphQLScalarType } from "graphql";
 
-import Upload from "./Upload.mjs";
+import { Upload } from "./";
 
-/** @typedef {import("./processRequest.mjs").FileUpload} FileUpload */
+/** @typedef {import("./utils/processRequest.js").FileUpload} FileUpload */
 
 /**
  * A GraphQL `Upload` scalar that can be used in a
@@ -18,7 +18,7 @@ import Upload from "./Upload.mjs";
  *
  * ```js
  * import { makeExecutableSchema } from "@graphql-tools/schema/makeExecutableSchema";
- * import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
+ * import GraphQLUpload from "gql-upload/GraphQLUpload.mjs";
  *
  * const schema = makeExecutableSchema({
  *   typeDefs: `
@@ -34,7 +34,7 @@ import Upload from "./Upload.mjs";
  *
  * ```js
  * import { GraphQLBoolean, GraphQLObjectType, GraphQLSchema } from "graphql";
- * import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
+ * import GraphQLUpload from "gql-upload/GraphQLUpload.mjs";
  *
  * const schema = new GraphQLSchema({
  *   mutation: new GraphQLObjectType({
@@ -66,10 +66,10 @@ import Upload from "./Upload.mjs";
  * {@linkcode GraphQLUpload} scalar resolver value promise resolves:
  *
  * ```ts
- * import type { FileUpload } from "graphql-upload/processRequest.mjs";
+ * import type { FileUpload } from "gql-upload/processRequest.mjs";
  * ```
  */
-const GraphQLUpload = new GraphQLScalarType({
+export const GraphQLUpload = new GraphQLScalarType({
   name: "Upload",
   description: "The `Upload` scalar type represents a file upload.",
   parseValue(value) {
@@ -83,5 +83,3 @@ const GraphQLUpload = new GraphQLScalarType({
     throw new GraphQLError("Upload serialization unsupported.");
   },
 });
-
-export default GraphQLUpload;

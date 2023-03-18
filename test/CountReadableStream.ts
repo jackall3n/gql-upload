@@ -7,6 +7,9 @@ import { Readable } from "node:stream";
  * @see [Example counting stream in the Node.js docs](https://nodejs.org/api/stream.html#an-example-counting-stream).
  */
 export default class CountReadableStream extends Readable {
+  _max: number;
+  _index: number;
+
   /** @param {import("node:stream").ReadableOptions} [options] */
   constructor(options) {
     super(options);
