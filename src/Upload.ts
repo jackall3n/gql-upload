@@ -10,8 +10,8 @@
  * this class wherever the file is expected in the GraphQL operation. The scalar
  * {@linkcode GraphQLUpload} derives it’s value from {@linkcode Upload.promise}.
  */
-export  class Upload {
-  promise: Promise<any>
+export class Upload {
+  promise: Promise<any>;
   file: File;
   resolve: (file: File) => void;
   reject: (error: Error) => void;

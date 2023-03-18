@@ -46,7 +46,7 @@ export default (tests) => {
 
     const app = new Koa().use(graphqlUploadKoa()).use(async (ctx, next) => {
       ctxRequestBody =
-        // @ts-ignore By convention this should be present.
+        // By convention this should be present.
         ctx.request.body;
       await next();
     });
@@ -95,7 +95,7 @@ export default (tests) => {
         )
         .use(async (ctx, next) => {
           ctxRequestBody =
-            // @ts-ignore By convention this should be present.
+            //  By convention this should be present.
             ctx.request.body;
           await next();
         });

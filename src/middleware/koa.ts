@@ -33,9 +33,9 @@ import defaultProcessRequest from "../utils/processRequest.js";
  * ```
  */
 export default function graphqlUploadKoa({
-                                           processRequest = defaultProcessRequest,
-                                           ...processRequestOptions
-                                         } = {}) {
+  processRequest = defaultProcessRequest,
+  ...processRequestOptions
+} = {}) {
   /**
    * [Koa](https://koajs.com) middleware that processes incoming
    * [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec)
@@ -51,7 +51,7 @@ export default function graphqlUploadKoa({
     const requestEnd = new Promise((resolve) => ctx.req.on("end", resolve));
 
     try {
-      // @ts-ignore This is conventional.
+      // This is conventional.
       ctx.request.body = await processRequest(
         ctx.req,
         ctx.res,

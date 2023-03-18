@@ -187,7 +187,7 @@ export default function processRequest(
 
             map.set(fieldName, new Upload());
 
-            const entries = Array.from(paths.entries())
+            const entries = Array.from(paths.entries());
 
             for (const [index, path] of entries) {
               if (typeof path !== "string")

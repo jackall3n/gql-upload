@@ -69,7 +69,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           ok(operation.variables.file instanceof Upload);
 
@@ -130,7 +130,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           ok(operation.variables.file instanceof Upload);
 
@@ -189,7 +189,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           ok(operation.variables.file instanceof Upload);
 
@@ -251,7 +251,7 @@ export default (tests) => {
            *   },
            * }>}
            */
-          (await processRequest(request, response));
+          await processRequest(request, response);
 
         ok(operations[0].variables.file instanceof Upload);
 
@@ -325,7 +325,7 @@ export default (tests) => {
            *   },
            * }}
            */
-          (await processRequest(request, response));
+          await processRequest(request, response);
 
         ok(operation.variables.files[0] instanceof Upload);
         ok(operation.variables.files[1] instanceof Upload);
@@ -399,7 +399,7 @@ export default (tests) => {
            *   },
            * }}
            */
-          (await processRequest(request, response));
+          await processRequest(request, response);
 
         ok(operation.variables.fileB instanceof Upload);
 
@@ -453,7 +453,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           ok(operation.variables.file instanceof Upload);
 
@@ -511,7 +511,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           ok(operation.variables.file instanceof Upload);
           await rejects(operation.variables.file.promise, {
@@ -607,7 +607,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response, { maxFiles: 2 }));
+            await processRequest(request, response, { maxFiles: 2 });
 
           ok(operation.variables.files[0] instanceof Upload);
 
@@ -680,13 +680,11 @@ export default (tests) => {
            *   },
            * }}
            */
-          (
-            await processRequest(request, response, {
-              // Todo: Change this back to 1 once this `busboy` bug is fixed:
-              // https://github.com/mscdex/busboy/issues/297
-              maxFileSize: 2,
-            })
-          );
+          await processRequest(request, response, {
+            // Todo: Change this back to 1 once this `busboy` bug is fixed:
+            // https://github.com/mscdex/busboy/issues/297
+            maxFileSize: 2,
+          });
 
         ok(operation.variables.files[0] instanceof Upload);
 
@@ -816,7 +814,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           const testUploadA = async () => {
             ok(operation.variables.fileA instanceof Upload);
@@ -961,7 +959,7 @@ export default (tests) => {
              *   },
              * }}
              */
-            (await processRequest(request, response));
+            await processRequest(request, response);
 
           // Wait for the request parsing to finish.
           await new Promise((resolve) => {

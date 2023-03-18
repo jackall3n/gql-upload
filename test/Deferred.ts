@@ -7,14 +7,14 @@
 export default class Deferred {
   constructor() {
     /** The promise. */
-    this.promise = /** @type {Promise<Resolves>} */ (
-      new Promise((resolve, reject) => {
+    this.promise = /** @type {Promise<Resolves>} */ new Promise(
+      (resolve, reject) => {
         /** Resolves the promise. */
         this.resolve = resolve;
 
         /** Rejects the promise. */
         this.reject = reject;
-      })
+      }
     );
   }
 }

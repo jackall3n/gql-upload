@@ -12,7 +12,7 @@ export default async function listen(server) {
   });
 
   return {
-    port: /** @type {import("node:net").AddressInfo} */ (server.address()).port,
+    port: /** @type {import("node:net").AddressInfo} */ server.address().port,
     close: () => server.close(),
   };
 }

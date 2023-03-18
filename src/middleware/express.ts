@@ -32,9 +32,9 @@ import defaultProcessRequest from "../utils/processRequest";
  * ```
  */
 export default function graphqlUploadExpress({
-                                               processRequest = defaultProcessRequest,
-                                               ...processRequestOptions
-                                             } = {}) {
+  processRequest = defaultProcessRequest,
+  ...processRequestOptions
+} = {}) {
   /**
    * [Express](https://expressjs.com) middleware that processes incoming
    * [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec)
@@ -51,7 +51,7 @@ export default function graphqlUploadExpress({
     const requestEnd = new Promise((resolve) => request.on("end", resolve));
     const { send } = response;
 
-    // @ts-ignore Todo: Find a less hacky way to prevent sending a response
+    // Todo: Find a less hacky way to prevent sending a response
     // before the request has ended.
     response.send =
       /** @param {Array<unknown>} args */

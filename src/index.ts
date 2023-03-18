@@ -1,2 +1,2 @@
-export * from './GraphQLUpload';
-export * from './Upload';
+export * from "./GraphQLUpload";
+export * from "./Upload";
