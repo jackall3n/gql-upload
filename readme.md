@@ -1,6 +1,8 @@
-![gql-upload logo](https://cdn.jsdelivr.net/gh/jaydenseric/gql-upload@8.0.0/gql-upload-logo.svg)
+![gql-upload logo](https://cdn.jsdelivr.net/gh/jackall3n/gql-upload@8.0.0/gql-upload-logo.svg)
 
 # gql-upload
+
+This is a complete copy of the [graphql-upload](https://github.com/jaydenseric/graphql-upload) package, but convert back from `.mjs` to typescript, with types exported.
 
 Middleware and an [`Upload`](./GraphQLUpload.mjs) scalar to add support for [GraphQL multipart requests](https://github.com/jaydenseric/graphql-multipart-request-spec) (file uploads via queries and mutations) to various Node.js GraphQL servers.
 
