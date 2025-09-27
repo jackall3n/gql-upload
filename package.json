@@ -1,6 +1,6 @@
 {
   "name": "gql-upload",
-  "version": "17.0.1",
+  "version": "17.0.2",
   "description": "Middleware and an Upload scalar to add support for GraphQL multipart requests (file uploads via queries and mutations) to various Node.js GraphQL servers.",
   "license": "MIT",
   "author": {
@@ -27,13 +27,29 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./middleware/express": {
+      "import": "./dist/middleware/express.mjs",
+      "require": "./dist/middleware/express.js"
+    },
+    "./middleware/koa": {
+      "import": "./dist/middleware/koa.mjs",
+      "require": "./dist/middleware/koa.js"
+    },
+    "./utils/ignoreStream": {
+      "import": "./dist/utils/ignoreStream.mjs",
+      "require": "./dist/utils/ignoreStream.js"
+    },
+    "./utils/processRequest": {
+      "import": "./dist/utils/processRequest.mjs",
+      "require": "./dist/utils/processRequest.js"
     },
     "./package.json": "./package.json"
   },
