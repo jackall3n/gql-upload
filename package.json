@@ -1,6 +1,6 @@
 {
   "name": "gql-upload",
-  "version": "17.0.0",
+  "version": "17.0.1",
   "description": "Middleware and an Upload scalar to add support for GraphQL multipart requests (file uploads via queries and mutations) to various Node.js GraphQL servers.",
   "license": "MIT",
   "author": {
@@ -27,23 +27,25 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "engines": {
-    "node": "^14.17.0 || ^16.0.0 || >= 18.0.0"
-  },
-  "peerDependencies": {
-    "@types/express": "^4.0.29",
-    "@types/koa": "^2.11.4",
-    "graphql": "^16.3.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/express": {
-      "optional": true
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
-    "@types/koa": {
-      "optional": true
-    }
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && npm publish"
   },
   "dependencies": {
     "@types/busboy": "^1.5.0",
@@ -55,6 +57,12 @@
     "object-path": "^0.11.8"
   },
   "devDependencies": {
+    "@types/node": "^24.5.2",
+    "bumpp": "^10.2.3",
+    "graphql": "^16.11.0",
+    "tsdown": "^0.15.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4",
     "@types/express": "^4.17.13",
     "@types/koa": "^2.13.5",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
@@ -64,21 +72,10 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "express": "^4.18.1",
     "form-data-encoder": "^2.1.0",
-    "graphql": "^16.6.0",
     "koa": "^2.13.4",
     "node-abort-controller": "^3.0.1",
     "node-fetch": "^3.2.10",
     "prettier": "^2.8.4",
-    "test-director": "^10.0.0",
-    "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "eslint": "eslint \"src/**/*.ts\"",
-    "format": "pnpm prettier --write",
-    "prettier": "prettier \"src/**/*.ts\" \"test/**/*.ts\"",
-    "types": "tsc -p jsconfig.json",
-    "tests": "coverage-node --unhandled-rejections=throw test.mjs",
-    "test": "pnpm eslint && pnpm prettier",
-    "prepublishOnly": "pnpm test"
+    "test-director": "^10.0.0"
   }
 }
