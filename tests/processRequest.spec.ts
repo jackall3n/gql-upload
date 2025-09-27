@@ -12,12 +12,12 @@ import {
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import processRequest from "./processRequest.js";
-import abortingMultipartRequest from "./test/abortingMultipartRequest.mjs";
-import Deferred from "./test/Deferred.mjs";
-import listen from "./test/listen.mjs";
-import streamToString from "./test/streamToString.mjs";
-import Upload from "../Upload.js";
+import processRequest from "../src/utils/processRequest.js";
+import abortingMultipartRequest from "./utils/abortingMultipartRequest";
+import Deferred from "./utils/Deferred";
+import listen from "./utils/listen";
+import streamToString from "./utils/streamToString";
+import { Upload } from "../src/Upload.js";
 
 /**
  * Adds `processRequest` tests.

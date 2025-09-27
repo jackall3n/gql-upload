@@ -12,9 +12,9 @@
  */
 export class Upload {
   promise: Promise<any>;
-  file: File;
-  resolve: (file: File) => void;
-  reject: (error: Error) => void;
+  file!: File;
+  resolve!: (file: File) => void;
+  reject!: (error: Error) => void;
 
   constructor() {
     /**

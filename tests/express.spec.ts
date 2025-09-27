@@ -6,15 +6,15 @@ import { deepStrictEqual, ok, strictEqual } from "node:assert";
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import graphqlUploadExpress from "./express";
-import processRequest from "../utils/processRequest";
-import listen from "../../test/listen";
+import graphqlUploadExpress from "../src/middleware/express";
+import processRequest from "../src/utils/processRequest";
+import listen from "./utils/listen";
 
 /**
  * Adds `graphqlUploadExpress` tests.
  * @param {import("test-director").default} tests Test director.
  */
-export default (tests) => {
+export default function test_graphqlUploadExpress(tests) {
   tests.add(
     "`graphqlUploadExpress` with a non multipart request.",
     async () => {
@@ -268,4 +268,4 @@ export default (tests) => {
       }
     }
   );
-};
+}

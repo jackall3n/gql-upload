@@ -3,15 +3,15 @@ import { deepStrictEqual, ok, strictEqual } from "node:assert";
 import { createServer } from "node:http";
 import fetch, { File, FormData } from "node-fetch";
 
-import graphqlUploadKoa from "./koa";
-import processRequest from "../utils/processRequest";
-import listen from "../../test/listen";
+import graphqlUploadKoa from "../src/middleware/koa";
+import processRequest from "../src/utils/processRequest";
+import listen from "./utils/listen";
 
 /**
  * Adds `graphqlUploadKoa` tests.
  * @param {import("test-director").default} tests Test director.
  */
-export default (tests) => {
+export default function test_graphqlUploadKoa(tests) {
   tests.add("`graphqlUploadKoa` with a non multipart request.", async () => {
     let processRequestRan = false;
 
@@ -42,7 +42,7 @@ export default (tests) => {
      *   },
      * } | undefined}
      */
-    let ctxRequestBody;
+    let ctxRequestBody: any;
 
     const app = new Koa().use(graphqlUploadKoa()).use(async (ctx, next) => {
       ctxRequestBody =
@@ -82,7 +82,7 @@ export default (tests) => {
        *   },
        * } | undefined}
        */
-      let ctxRequestBody;
+      let ctxRequestBody: any;
 
       const app = new Koa()
         .use(
@@ -223,4 +223,4 @@ export default (tests) => {
       }
     }
   );
-};
+}

@@ -1,12 +1,12 @@
 import { ok, rejects, strictEqual } from "node:assert";
 
-import { Upload } from "./";
+import { Upload } from "../src";
 
 /**
  * Adds `Upload` tests.
  * @param {import("test-director").default} tests Test director.
  */
-export default (tests) => {
+export default function test_Upload(tests) {
   tests.add("`Upload` class resolving a file.", async () => {
     const upload = new Upload();
 
@@ -53,4 +53,4 @@ export default (tests) => {
     // process won’t exit with an error if the unhandled rejection is’t silenced
     // as intended.
   });
-};
+}

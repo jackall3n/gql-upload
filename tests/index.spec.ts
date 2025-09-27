@@ -1,10 +1,10 @@
 import TestDirector from "test-director";
 
 import test_GraphQLUpload from "./GraphQLUpload.spec";
-import test_graphqlUploadExpress from "./middleware/express.spec";
-import test_graphqlUploadKoa from "./middleware/koa.spec";
-import test_ignoreStream from "./utils/ignoreStream.spec";
-import test_processRequest from "./utils/processRequest.spec";
+import test_graphqlUploadKoa from "./koa.spec";
+import test_graphqlUploadExpress from "./express.spec";
+import test_ignoreStream from "./ignoreStream.spec";
+import test_processRequest from "./processRequest.spec";
 import test_Upload from "./Upload.spec";
 
 const tests = new TestDirector();
